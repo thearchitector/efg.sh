@@ -1,0 +1,25 @@
+[project]
+name = "app"
+version = "0.0.0"
+description = ""
+authors = [
+    {name = "Elias Gabriel",email = "me@eliasfgabriel.com"},
+]
+readme = "README.md"
+
+requires-python = ">=3.11"
+dependencies = [
+    "setuptools>=68.0.0",
+    "blacksheep>=1.2.18",
+    "orjson>=3.9.2",
+    "pydantic-settings>=2.0.2",
+    "sqlalchemy[asyncio]>=2.0.19",
+    "sqlalchemy-triopg>=1.0.0",
+    "hypercorn[trio]>=0.14.4",
+]
+
+[tool.pdm.scripts]
+serve = "hypercorn --config python:app.environment.ServerSettings application:app"
+
+[tool.mypy]
+strict = true
